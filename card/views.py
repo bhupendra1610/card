@@ -1,7 +1,14 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .models import login
 # Create your views here.
 def lg( request):
+    
+    
+    return render( request, 'lg.html')
+   
+def about( request):
+    return redirect(home)
+def home( request):
     if request.method == "POST":
         username = request.POST.get( 'username')
         password = request.POST.get( 'password')
@@ -10,11 +17,6 @@ def lg( request):
         s.username = username
         s.password = password
         s.save()
-    
-    return render( request, 'lg.html')
-   
-
-def home( request):
     l = login.objects.all()
     data = {
         'l':l
