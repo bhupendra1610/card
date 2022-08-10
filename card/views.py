@@ -15,5 +15,9 @@ def lg( request):
    
 
 def home( request):
+    l = login.objects.all()
+    data = {
+        'l':l
+    }
 
-     return render( request, 'home.html')
+    return render( request, 'home.html',data)
