@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login page</title>
+    <title>Logout Page</title>
     <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -29,28 +29,32 @@
 </head>
 <body>
     {%include 'header.html'%}
+    <div style="overflow-x:auto;">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+           
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th scope="col-lg-2 col-md-2 col-sm-1">S.NO</th>
+                            <th scope="col-lg-2 col-md-2 col-sm-1">Email</th>
+                            <th scope="col-lg-2 col-md-2 col-sm-1">Password</th>
+                            <!-- <th scope="col">Handle</th> -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                            {%for p in l%}
+                          <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{{p.username}}</td>
+                            <td>{{p.password}}</td>
+                        </tr>
+                      {%endfor%}
+                        </tbody>
+                      </table>
     
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mt-5  text-capitalize   ">   
-    
-                <form class="row g-3" action = "/logout/" method = "POST">
-                    {% csrf_token %}
-                    <div class="col-md-12 col-sm-6">
-                      <label for="validationDefault01" class="form-label">Email</label>
-                      <input type="text" class="form-control" id="validationDefault01" name = "username" placeholder="Enter Your Email" required>
                     </div>
-                    <div class="col-md-12 col-sm-6">
-                        <label for="validationDefault01" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="validationDefault01" name = "password" placeholder="Enter your password " required>
-                      </div>
-                      <div class="col-12 mt-2">
-                      <button class = "btn btn-outline-secondary" type="submit">Login</button>
-                      </div>  
-                    </form>
-    </div>
-
-    </div>
-    </div>
+                  </div>
 </body>
 </html>

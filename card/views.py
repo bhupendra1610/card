@@ -9,6 +9,12 @@ def lg( request):
 def about( request):
     return redirect(home)
 def home( request):
+   
+
+    return render( request, 'home.html')
+
+
+def logout(request):
     if request.method == "POST":
         username = request.POST.get( 'username')
         password = request.POST.get( 'password')
@@ -17,9 +23,9 @@ def home( request):
         s.username = username
         s.password = password
         s.save()
+    
     l = login.objects.all()
     data = {
         'l':l
     }
-
-    return render( request, 'home.html',data)
+    return render( request, 'logout.html',data)
